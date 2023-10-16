@@ -1,0 +1,23 @@
+.inputPassword {
+  border: none;
+  background: transparent;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 2.4063rem;
+
+  background: var(--color-grey-2);
+
+  border: 1px solid var(--color-grey-0);
+  border-radius: 3.21px;
+  outline: 0;
+}
+
+.iconHidden {
+  margin: 0.2rem 0.5rem 0 0;
+  color: var(--color-grey-1);
+}

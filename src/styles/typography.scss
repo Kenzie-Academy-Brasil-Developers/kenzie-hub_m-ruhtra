@@ -1,0 +1,56 @@
+.title {
+  font-family: var(--font-primary);
+  font-style: normal;
+  color: var(--color-grey-0);
+
+  &.one {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  &.two {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26.394px;
+  }
+}
+
+.headline {
+  font-family: var(--font-primary);
+  font-style: normal;
+  color: var(--color-grey-1);
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22.3296px;
+
+  &.bold {
+    font-weight: 600;
+    line-height: 18px;
+  }
+
+  &.label {
+    color: var(--color-grey-0);
+  }
+}
+
+.paragraph {
+  font-family: var(--font-primary);
+  font-style: normal;
+  color: var(--color-white);
+  
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.2704px;
+}
+
+.error {
+  font-family: var(--font-primary);
+  font-style: normal;
+  color: var(--color-negative);
+  
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22.3296px;
+}
