@@ -2,16 +2,18 @@ import { RoutesMain } from "./routes";
 
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { UserProvider } from "./providers/UserProviders";
+
+import { UserContext } from "./providers/UserProviders";
+import { useContext } from "react";
+import { Loading } from "./components/Loading";
 
 function App() {
+  const { loading } = useContext(UserContext);
 
   return (
     <>
-      <UserProvider>
-        <RoutesMain />
-        <ToastContainer position="top-right" autoClose={3000} theme="dark" />
-      </UserProvider>
+      {loading ? <Loading /> : <RoutesMain />}
+      <ToastContainer position="top-right" autoClose={3000} theme="dark" />
     </>
   )
 }

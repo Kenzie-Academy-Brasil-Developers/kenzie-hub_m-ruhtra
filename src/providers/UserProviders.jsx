@@ -7,6 +7,7 @@ const UserContext = createContext({});
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,7 +15,8 @@ const UserProvider = ({ children }) => {
 
     const getUser = async () => {
       try {
-        const {data} = await api.get("/profile", {
+        setLoading(true);
+        const { data } = await api.get("/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
           }
@@ -24,12 +26,14 @@ const UserProvider = ({ children }) => {
         navigate("/dashboard");
       } catch (error) {
         console.log(error)
+      } finally {
+        setLoading(false);
       }
     }
 
-    getUser();  
+    getUser();
   }, []);
- 
+
   const userLogout = () => {
     setUser(null);
     navigate("/");
@@ -70,7 +74,7 @@ const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, userLogin, userLogout, userRegister }}>
+    <UserContext.Provider value={{ user, loading, userLogin, userLogout, userRegister }}>
       {children}
     </UserContext.Provider>
   );
