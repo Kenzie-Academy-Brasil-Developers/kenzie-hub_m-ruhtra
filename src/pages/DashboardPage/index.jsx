@@ -1,7 +1,12 @@
 import { Header } from "../../components/Header";
 import styles from "./style.module.scss";
 
-export const DashboardPage = ({ user, userLogout }) => {
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserProviders";
+
+export const DashboardPage = () => {
+  const { user, userLogout } = useContext(UserContext);
+
   return (
     <div className="pageContainer">
       <div className={styles.headerContainer}>

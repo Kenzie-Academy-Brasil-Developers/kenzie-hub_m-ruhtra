@@ -2,7 +2,7 @@ import { Header } from "../../components/Header";
 import { LoginForm } from "../../components/forms";
 import styles from "./style.module.scss";
 
-export const LoginPage = ({ setUser }) => {
+export const LoginPage = () => {
   return (
     <div className="pageContainer">
       <div className={styles.headerContainer}>
@@ -11,7 +11,7 @@ export const LoginPage = ({ setUser }) => {
 
       <div className={styles.loginPageContainer}>
         <h1 className="title one">Login</h1>
-        <LoginForm setUser={setUser} />
+        <LoginForm />
       </div>
     </div>
   );

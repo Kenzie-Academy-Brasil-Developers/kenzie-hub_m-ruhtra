@@ -1,45 +1,27 @@
-import api from "../../../services";
-
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod";
-
-import { Link, useNavigate } from "react-router-dom";
 import { loginFormSchema } from "./loginForm.schema";
+
+import { Link } from "react-router-dom";
 
 import Input from "../Input";
 import InputPassword from "../InputPassword";
 import styles from "./style.module.scss";
 
-import { toast } from 'react-toastify';
+import { UserContext } from "../../../providers/UserProviders";
 
-export const LoginForm = ({ setUser }) => {
+export const LoginForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(loginFormSchema),
   });
 
+  const { userLogin } = useContext(UserContext);
+
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate();
-
-  const userLogin = async (payLoad) => {
-    try {
-      setLoading(true);
-      const { data } = await api.post("/sessions", payLoad);
-      setUser(data.user);
-      localStorage.setItem("@TOKEN", data.token);
-      navigate("/dashboard");
-    } catch (error) {
-      if (error.response?.data.message === "invalid email" || "Incorrect email / password combination") {
-        toast.error("email/senha incorreto");
-      }
-    } finally {
-      setLoading(false);
-    };
-  };
-
   const submit = (payLoad) => {
-    userLogin(payLoad);
+    userLogin(payLoad, setLoading);
   };
 
   return (

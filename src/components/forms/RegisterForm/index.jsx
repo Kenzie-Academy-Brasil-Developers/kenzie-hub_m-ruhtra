@@ -1,10 +1,6 @@
-import api from "../../../services";
-
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod";
-
-import { useNavigate } from "react-router-dom";
 import { registerFormSchema } from "./registerForm.schema";
 
 import Input from "../Input";
@@ -12,7 +8,7 @@ import InputPassword from "../InputPassword";
 import Select from "../Select";
 import styles from "./style.module.scss";
 
-import { toast } from "react-toastify";
+import { UserContext } from "../../../providers/UserProviders";
 
 export const RegisterForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -21,27 +17,10 @@ export const RegisterForm = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate();
-
-  const userRegister = async (payLoad) => {
-    try {
-      setLoading(true);
-      await api.post("/users", payLoad);
-      navigate("/");
-      toast.success("Conta criada com sucesso!");
-    } catch (error) {
-      if (error.response?.data.message === "Email already exists") {
-        toast.error("Usuário já cadastrado!");
-      } else if (error.response?.data.message !== "Email already exists"){
-        toast.error("Ops! Algo deu errado.");
-      }    
-    } finally {
-      setLoading(false);
-    };
-  };
+  const { userRegister } = useContext(UserContext);
 
   const submit = (payLoad) => {
-    userRegister(payLoad);
+    userRegister(payLoad, setLoading);
   };
 
   return (
