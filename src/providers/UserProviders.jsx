@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../services/index";
@@ -7,9 +7,29 @@ const UserContext = createContext({});
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = localStorage.getItem("@TOKEN");
+
+    const getUser = async () => {
+      try {
+        const {data} = await api.get("/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }
+        });
+
+        setUser(data);
+        navigate("/dashboard");
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    getUser();  
+  }, []);
+ 
   const userLogout = () => {
     setUser(null);
     navigate("/");
@@ -41,9 +61,9 @@ const UserProvider = ({ children }) => {
     } catch (error) {
       if (error.response?.data.message === "Email already exists") {
         toast.error("Usuário já cadastrado!");
-      } else if (error.response?.data.message !== "Email already exists"){
+      } else if (error.response?.data.message !== "Email already exists") {
         toast.error("Ops! Algo deu errado.");
-      }    
+      }
     } finally {
       setLoading(false);
     };

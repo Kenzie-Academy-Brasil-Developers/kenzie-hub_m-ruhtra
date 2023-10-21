@@ -6,7 +6,7 @@ import { UserContext } from "../../providers/UserProviders";
 
 export const DashboardPage = () => {
   const { user, userLogout } = useContext(UserContext);
-
+  
   return (
     <div className="pageContainer">
       <div className={styles.headerContainer}>
@@ -15,8 +15,8 @@ export const DashboardPage = () => {
       </div>
 
       <div className={styles.infoUserContainer}>
-        <h1 className="title one">Olá, {user.name}</h1>
-        <p className="headline bold">{user.course_module}</p>
+        <h1 className="title one">Olá, {user?.name}</h1>
+        <p className="headline bold">{user?.course_module}</p>
       </div>
 
       <div className={styles.contentContainer}>
