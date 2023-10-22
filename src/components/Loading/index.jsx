@@ -5,5 +5,5 @@ export const Loading = () => {
     <div className="loadingContainer">
       <img src={loadingIcon} alt="Loading Icon" />
     </div>
-  )
-}
+  );
+};

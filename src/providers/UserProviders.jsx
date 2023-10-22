@@ -10,6 +10,8 @@ const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const pathname = window.location.pathname;
+
   useEffect(() => {
     const token = localStorage.getItem("@TOKEN");
 
@@ -23,15 +25,20 @@ const UserProvider = ({ children }) => {
         });
 
         setUser(data);
-        navigate("/dashboard");
+        navigate(pathname);
       } catch (error) {
         console.log(error)
+        if (error.response?.data.message === "Token inválido."){
+          toast.error("Faça o login para continuar!");
+        }
       } finally {
         setLoading(false);
       }
     }
 
-    getUser();
+    if (token){
+      getUser();
+    }
   }, []);
 
   const userLogout = () => {
@@ -45,6 +52,7 @@ const UserProvider = ({ children }) => {
       setLoading(true);
       const { data } = await api.post("/sessions", payLoad);
       setUser(data.user);
+
       localStorage.setItem("@TOKEN", data.token);
       navigate("/dashboard");
     } catch (error) {
@@ -60,6 +68,7 @@ const UserProvider = ({ children }) => {
     try {
       setLoading(true);
       await api.post("/users", payLoad);
+
       navigate("/");
       toast.success("Conta criada com sucesso!");
     } catch (error) {

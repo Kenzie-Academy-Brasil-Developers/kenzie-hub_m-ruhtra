@@ -1,8 +1,8 @@
 import { Header } from "../../components/Header";
-
-import { Link } from "react-router-dom";
 import { RegisterForm } from "../../components/forms";
 import styles from "./style.module.scss";
+
+import { Link } from "react-router-dom";
 
 export const RegisterPage = () => {
   return (
