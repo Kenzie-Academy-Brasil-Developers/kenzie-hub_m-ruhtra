@@ -27,18 +27,17 @@ const UserProvider = ({ children }) => {
         setUser(data);
         navigate(pathname);
       } catch (error) {
-        console.log(error)
-        if (error.response?.data.message === "Token inválido."){
+        if (error.response?.data.message === "Token inválido.") {
           toast.error("Faça o login para continuar!");
-        }
+        };
       } finally {
         setLoading(false);
-      }
-    }
+      };
+    };
 
-    if (token){
+    if (token) {
       getUser();
-    }
+    };
   }, []);
 
   const userLogout = () => {
@@ -58,7 +57,7 @@ const UserProvider = ({ children }) => {
     } catch (error) {
       if (error.response?.data.message === "invalid email" || "Incorrect email / password combination") {
         toast.error("email/senha incorreto");
-      }
+      };
     } finally {
       setLoading(false);
     };
@@ -76,7 +75,7 @@ const UserProvider = ({ children }) => {
         toast.error("Usuário já cadastrado!");
       } else if (error.response?.data.message !== "Email already exists") {
         toast.error("Ops! Algo deu errado.");
-      }
+      };
     } finally {
       setLoading(false);
     };

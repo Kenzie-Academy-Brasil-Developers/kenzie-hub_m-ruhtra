@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import { UserContext } from "../../providers/UserProviders"
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserProviders";
 import { Navigate, Outlet } from "react-router-dom";
 
 export const PublicRoutes = () => {

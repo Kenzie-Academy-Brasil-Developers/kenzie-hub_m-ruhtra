@@ -15,7 +15,7 @@ function App() {
       {loading ? <Loading /> : <RoutesMain />}
       <ToastContainer position="top-right" autoClose={3000} theme="dark" />
     </>
-  )
-}
+  );
+};
 
 export default App;
