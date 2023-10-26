@@ -1,0 +1,51 @@
+.cardContainer {
+  width: 100%;
+  height: 4.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 3px;
+
+  background-color: var(--color-grey-4);
+  border-radius: 0.25rem;
+
+  padding: 13px 0.8888rem 0.8888rem 0.875rem;
+
+  @media (min-width: 410px) {
+    height: 3.0625rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.8125rem 1.4375rem;
+  }
+}
+
+.infoCard {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (min-width: 410px) {
+    justify-content: flex-end;
+    gap: 0.5944rem;
+  }
+}
+
+.btnsCard {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btnEdit {
+  width: 15px;
+  height: 15px;
+}
+
+.btnDelete {
+  width: 19px;
+  height: 19px;
+}

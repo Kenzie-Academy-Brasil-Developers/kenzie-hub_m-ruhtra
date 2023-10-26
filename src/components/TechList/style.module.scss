@@ -1,0 +1,37 @@
+.techListContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  margin-top: 1.625rem;
+}
+
+.headerTechList {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1.625rem;
+  @media (min-width: 410px) {
+    width: 98%;
+  }
+}
+
+.techListItens {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-grey-3);
+  border-radius: 0.25rem;
+  padding: 1rem 0.5625rem;
+
+  @media (min-width: 410px) {
+    width: 98%;
+    padding: 1.4375rem 1.625rem 1.5625rem 1.375rem;
+  }
+}

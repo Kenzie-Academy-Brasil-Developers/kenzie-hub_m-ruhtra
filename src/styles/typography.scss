@@ -14,6 +14,13 @@
     font-size: 16px;
     line-height: 26.394px;
   }
+
+  &.card {
+    color: var(--color-white);
+    font-weight: 700;
+    font-size: 14.61px;
+    line-height: 22.334px;
+  }
 }
 
 .headline {
@@ -43,6 +50,13 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 18.2704px;
+
+  &.card {
+    color: var(--color-grey-1);
+
+    font-size: 12.182px;
+    line-height: 22.334px;
+  }
 }
 
 .error {
