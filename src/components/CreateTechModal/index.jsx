@@ -1,22 +1,21 @@
 import { CreateTechForm } from "../forms/CreateTechForm";
-import styles from "./style.module.scss";
 
 export const CreateTechModal = ({ setIsCreateOpen }) => {
   return (
-    <div className={styles.modalOverlay} role="dialog">
-      <div className={styles.modalContainer}>
-        <div className={styles.modalHeader}>
+    <div className="modalOverlay" role="dialog">
+      <div className="modalContainer">
+        <div className="modalHeader">
           <h2 className="title modal">Cadastrar Tecnologia</h2>
 
           <button
-            className={styles.btnClose}
+            className="btnClose"
             onClick={() => setIsCreateOpen(false)}
           >
             X
           </button>
         </div>
 
-        <div className={styles.formContainer}>
+        <div className="formModalContainer">
          <CreateTechForm/>
         </div>
       </div>

@@ -32,15 +32,7 @@
   background-color: var(--color-grey-2);
 }
 
-.btnClose {
-  color: var(--color-grey-1);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 26px;
-}
-
-.formContainer{
+.formModalContainer{
   display: flex;
   flex-direction: column;
 
