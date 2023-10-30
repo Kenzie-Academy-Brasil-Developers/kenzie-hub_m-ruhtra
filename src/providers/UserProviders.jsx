@@ -26,8 +26,8 @@ const UserProvider = ({ children }) => {
           }
         });
 
-        setUser(data);
         setTechList(data.techs);
+        setUser(data);
         
         navigate(pathname);
       } catch (error) {

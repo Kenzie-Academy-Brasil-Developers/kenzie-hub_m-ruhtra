@@ -25,7 +25,7 @@ export const TechList = () => {
 
       <div className={styles.techContainer}>
         {
-          techList.length > 0 ? (
+          techList?.length > 0 ? (
             <ul className={styles.techListItens}>
               {techList.map((tech) => (
                 <TechCard key={tech.id} tech={tech} />

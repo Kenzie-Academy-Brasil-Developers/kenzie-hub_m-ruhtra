@@ -13,7 +13,6 @@ const TechProvider = ({ children }) => {
 
   const [loading, setLoading] = useState(false);
 
-
   const createTech = async (payLoad) => {
     const token = localStorage.getItem("@TOKEN");
 
