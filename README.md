@@ -21,7 +21,8 @@ Utilizado a API: Kenzie Hub API. Além disso, para praticar a estilização, a a
 - Utilização de componente *Link* para redirecinamento;
 - Redirecionamento de rotas utilizando o *useNavigate()*;
 - Proteção de rotas utilizando conceitos de *Outlet* / *Navigate*;
-- Diferenciação de rotas públicas e rotas privadas.
+- Diferenciação de rotas públicas e rotas privadas;
+- Implementação de página de "loading".
 
 #### - Formulários
 - Utilização da biblioteca *React Hook Form*;
@@ -32,3 +33,9 @@ Utilizado a API: Kenzie Hub API. Além disso, para praticar a estilização, a a
 - Armazenamento do token do usuário em localStorage;
 - Refatoração de lógica para arquitetura de contexto;
 - Criação de função para autologin utilizando *useEffect*.
+
+#### - Arquitetura de contexto
+- Criação de contexto para centralizar rotinas e tecnologias do usuário;
+
+#### - CRUD
+- Criação de CRUD para o gerenciamento de tecnologias do usuário;
