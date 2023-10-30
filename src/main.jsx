@@ -4,15 +4,18 @@ import App from './App.jsx';
 
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './providers/UserProviders.jsx';
+import { TechProvider } from './providers/TechProviders.jsx';
 
 import "./styles/index.scss";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <UserProvider>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </UserProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <UserProvider>
+        <TechProvider>
+          <App />
+        </TechProvider>
+      </UserProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );

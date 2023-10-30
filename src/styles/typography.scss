@@ -20,6 +20,13 @@
     font-weight: 700;
     font-size: 14.61px;
     line-height: 22.334px;
+    text-wrap: nowrap;
+  }
+
+  &.modal {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
   }
 }
 

@@ -12,7 +12,7 @@
 
   padding: 13px 0.8888rem 0.8888rem 0.875rem;
 
-  @media (min-width: 410px) {
+  @media (min-width: 480px) {
     height: 3.0625rem;
     flex-direction: row;
     justify-content: space-between;
@@ -29,7 +29,7 @@
   justify-content: space-between;
   align-items: center;
 
-  @media (min-width: 410px) {
+  @media (min-width: 480px) {
     justify-content: flex-end;
     gap: 0.5944rem;
   }

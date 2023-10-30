@@ -12,7 +12,7 @@
   border-top: 1px solid var(--color-grey-3);
   border-bottom: 1px solid var(--color-grey-3);
 
-  @media (min-width: 410px) {
+  @media (min-width: 480px) {
     flex-direction: row;
     align-items: first baseline;
   }
@@ -40,4 +40,8 @@
   width: 100%;
   margin: 2.375rem 0 2rem 0;
   padding-left: 0.75rem;
+}
+
+.techContainer{
+  width: 100%;
 }

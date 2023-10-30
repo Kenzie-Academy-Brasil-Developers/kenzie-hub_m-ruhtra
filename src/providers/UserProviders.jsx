@@ -8,6 +8,8 @@ const UserContext = createContext({});
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [techList, setTechList] = useState([]);
+
   const navigate = useNavigate();
 
   const pathname = window.location.pathname;
@@ -25,6 +27,8 @@ const UserProvider = ({ children }) => {
         });
 
         setUser(data);
+        setTechList(data.techs);
+        
         navigate(pathname);
       } catch (error) {
         if (error.response?.data.message === "Token inválido.") {
@@ -82,7 +86,16 @@ const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, loading, userLogin, userLogout, userRegister }}>
+    <UserContext.Provider 
+      value={{ 
+        user, 
+        loading, 
+        userLogin, 
+        userLogout, 
+        userRegister,
+        techList,
+        setTechList
+      }}>
       {children}
     </UserContext.Provider>
   );
