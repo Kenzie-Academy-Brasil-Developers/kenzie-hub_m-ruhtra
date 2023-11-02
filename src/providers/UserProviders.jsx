@@ -26,8 +26,8 @@ const UserProvider = ({ children }) => {
           }
         });
 
-        setTechList(data.techs);
         setUser(data);
+        setTechList(data.techs);
         
         navigate(pathname);
       } catch (error) {
@@ -54,7 +54,9 @@ const UserProvider = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await api.post("/sessions", payLoad);
+      
       setUser(data.user);
+      setTechList(data.user.techs);
 
       localStorage.setItem("@TOKEN", data.token);
       navigate("/dashboard");
